@@ -654,7 +654,7 @@ class SolrRelation(
       }
     })
 
-    if (fieldsToAddToSolr.nonEmpty) {
+    if (fieldsToAddToSolr.nonEmpty && conf.addNewFields.getOrElse(true)) {
       SolrRelation.addFieldsForInsert(fieldsToAddToSolr.toMap, collectionId, cloudClient)
     }
 
